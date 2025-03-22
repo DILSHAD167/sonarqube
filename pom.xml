@@ -1,7 +1,0 @@
-- name: Run SonarQube Scan
-  run: |
-    npx sonarqube-scanner \
-      -Dsonar.projectKey=your_project_key \
-      -Dsonar.host.url=http://your-sonarqube-server:9000 \
-      -Dsonar.token=${{ secrets.SONAR_TOKEN }}
-
