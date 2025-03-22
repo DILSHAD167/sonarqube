@@ -25,13 +25,4 @@ jobs:
         with:
           path: ~/.sonar
           key: sonar-${{ runner.os }}
-      - name: Debug Directory Structure
-        run: ls -R
-
-
-      - name: Run SonarQube Scanner
-        run: |
-          mvn clean verify sonar:sonar \
-            -Dsonar.projectKey=your_project_key \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-            -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+     
