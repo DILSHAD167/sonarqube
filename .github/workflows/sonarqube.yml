@@ -25,4 +25,12 @@ jobs:
         with:
           path: ~/.sonar
           key: sonar-${{ runner.os }}
+
+      - name: Run SonarQube Scanner
+        run: |
+        npx sonarqube-scanner \
+          -Dsonar.projectKey=your_project_key \
+          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+          -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+
      
