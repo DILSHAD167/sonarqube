@@ -1,4 +1,4 @@
-name: SonarQube Scan
+name: SonarQube Analysis
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
       - main
       - develop
 
-jobs: 
-  sonar_scan:
+jobs:
+  sonar:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -26,9 +26,9 @@ jobs:
           path: ~/.sonar
           key: sonar-${{ runner.os }}
 
-      - name: Run SonarQube Scan
+      - name: Run SonarQube Scanner
         run: |
           mvn clean verify sonar:sonar \
             -Dsonar.projectKey=your_project_key \
-            -Dsonar.host.url=http://your-sonarqube-server:9000 \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.token=${{ secrets.SONAR_TOKEN }}
