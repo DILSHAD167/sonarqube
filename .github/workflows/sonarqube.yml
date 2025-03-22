@@ -25,6 +25,9 @@ jobs:
         with:
           path: ~/.sonar
           key: sonar-${{ runner.os }}
+      - name: Debug Directory Structure
+        run: ls -R
+
 
       - name: Run SonarQube Scanner
         run: |
